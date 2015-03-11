@@ -136,7 +136,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.9999998"
-     inkscape:cx="-41.621469"
+     inkscape:cx="-48.250009"
      inkscape:cy="15.846725"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -165,7 +165,8 @@
      transform="translate(0,-988.3622)">
     <g
        id="g3001"
-       transform="translate(16,-15.999993)">
+       transform="translate(16,-15.999993)"
+       style="opacity:0.6">
       <path
          inkscape:transform-center-y="-8.1457523"
          inkscape:transform-center-x="1.500745"
@@ -178,7 +179,7 @@
          sodipodi:nodetypes="ccc"
          id="path3860"
          d="m 11.033283,1035.3109 c -2.4757846,6.1442 -2.7753055,15.4321 5.699965,15.6561 -6.7495713,-2.7628 -6.7802892,-9.892 -5.699965,-15.6561 z"
-         style="opacity:0.50409833;fill:#ffffff;stroke:none"
+         style="opacity:0.50409833000000004;fill:#ffffff;stroke:none"
          inkscape:connector-curvature="0" />
       <path
          sodipodi:nodetypes="ccccccccccccc"
@@ -190,7 +191,7 @@
          sodipodi:nodetypes="cccc"
          id="path3777"
          d="m 13.824687,1021.3018 c -1.451222,0.4623 -2.711193,0.9405 -2.799003,1.5164 0.835226,0.4611 5.818415,0.046 9.024275,0 -4.234627,-0.2685 -7.596427,-0.6333 -6.225272,-1.5225 z"
-         style="opacity:0.43032789;fill:#18c242;fill-opacity:1;stroke:none"
+         style="opacity:0.43032788999999999;fill:#18c242;fill-opacity:1;stroke:none"
          inkscape:connector-curvature="0" />
     </g>
   </g>
