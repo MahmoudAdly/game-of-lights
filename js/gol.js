@@ -47,6 +47,7 @@ var Game = {
     /*
     This will RESET the game. A timer is used to avoid frequent resizing.
     */
+    clearInterval(Game.calcTimerObject);
     clearTimeout(Game.resetTimerObject);
     Game.resetTimerObject = setTimeout(function function_name (argument) {
       Game.destroyLeds();
@@ -84,6 +85,8 @@ var Game = {
         Game.ledsArray[i][j].destroy();
       }
     }
+    Game.ledsArray = [[]];
+    Game.newStatesArray = [[]];
   },
   newLed: function(row, col) {
     // Select led color randomly and set the sprite component accordingly
