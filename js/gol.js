@@ -2,18 +2,20 @@ var Game = {
   background: null,
   cellSize: 64,
   ledsArray: [[]],
+  startButton: null,
   newStatesArray: [[]],
   colorsArray: ['r','g','b'],
   active: false,
-  timerObject: null,
-  timerInterval: 1000,
+  calcTimerObject: null,
+  calcTimerInterval: 1000,
+  resetTimerObject: null,
+  resetTimerInterval: 500,
   initialize: function() {
     Crafty.init(Crafty.viewport._width, Crafty.viewport._height, document.getElementById('cr-stage'));
     Game.loadAssets();
     Game.createLeds();
     Game.createStartButton();
     Crafty.bind('ViewportResize', Game.resizeScreen);
-    Crafty.trigger('ViewportResize');
   },
   loadAssets: function() {
     Crafty.sprite(Game.cellSize, Game.cellSize, "img/r-on.png", {
@@ -42,7 +44,17 @@ var Game = {
     });
   },
   resizeScreen: function() {
-    /* This will RESET the game */
+    /*
+    This will RESET the game. A timer is used to avoid frequent resizing.
+    */
+    clearTimeout(Game.resetTimerObject);
+    Game.resetTimerObject = setTimeout(function function_name (argument) {
+      Game.destroyLeds();
+      Game.createLeds();
+      Game.startButton.destroy();
+      Game.createStartButton();
+    }, Game.resetTimerInterval);
+
   },
   createLeds: function() {
     // Calculate needed cells in given viewport
@@ -63,6 +75,13 @@ var Game = {
       if(Game.newStatesArray[i] == undefined) Game.newStatesArray.push([]);
       for(var j = 0; j < Game.ledsArray[i].length; j++) {
         Game.newStatesArray[i][j] = false;
+      }
+    }
+  },
+  destroyLeds: function() {
+    for (var i = 0; i < Game.ledsArray.length; i++) {
+      for (var j = 0; j < Game.ledsArray[i].length; j++) {
+        Game.ledsArray[i][j].destroy();
       }
     }
   },
@@ -190,15 +209,16 @@ var Game = {
                       this.removeComponent('button_start').addComponent('button_stop');
                     }
                 });
+    Game.startButton = e;
   },
   start: function() {
-    Game.timerObject = setInterval(function() {
+    Game.calcTimerObject = setInterval(function() {
       Game.calculate();
-    }, Game.timerInterval);
+    }, Game.calcTimerInterval);
     Game.active = true;
   },
   stop: function() {
-    clearInterval(Game.timerObject);
+    clearInterval(Game.calcTimerObject);
     Game.resetLeds();
     Game.active = false;
   }
