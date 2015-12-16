@@ -3,4 +3,4 @@
 
 A LEDs version of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-[View online](http://thaghra.com/game-of-lights).
+[View online](http://lab.thaghra.com/game-of-lights).
